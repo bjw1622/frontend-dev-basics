@@ -1,4 +1,4 @@
-console.log("test");
-console.info("test");
-console.warn("test");
-console.error("test");
+console.log('hello world');
+console.info('hello world');
+console.warn('hello world');
+console.error('hello world');

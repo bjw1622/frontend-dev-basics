@@ -1,49 +1,52 @@
 /**
- * 변수의 범위(scope)
- *
- * 1. 자바스크립트는 기본적으로 코드에서 변수의 범위를 알수 있다.(정적 스코프, Lexical Scope)
- * 2. 자바스크립트의 scope
- *    1) 전역 범위
- *    2) ES6 이전(<= ES5)
- *       - 자바와 같은 블록 범위({})를 지원하지 않았다.
- *       - 함수 범위만 지원
- *       - var 키워드를 사용해야 함수범위를 가진다.
- *       - 만일 사용하지만 그 변수는 전역 범위를 가진다(hoisting)
- *    3) ES6 이후(ES6 ~ ES2022)
- *       - 자바와 같은 블록 범위를 가진다.
- *       - let 키워드를 사용해서 블록 범위를 가지게 한다.
- *       - const 키워드는 블록 범위의 상수를 정의할 때 사용한다.
- *
- *    4) 결론:
- *       const, let만 사용하고 둘 중에 하나를 반드 붙히자!!!!!(안붙히면 전역 범위를 만든다:  hoisting)
+ * 구문(statement)
+ * 
+ * 1. 자바스크립트 실행 단위 
+ * 
+ * 2. 구성 요소
+ *    값, 연산식: 표현식
+ *    예약어: var, if, for
+ *    주석: 구문이지만 실행하지 않는다.
+ * 
+ * 3. 구문의 예
+ *    if문, if~else문, swith
+ *    while문, do-while, for 문
+ *    for~in문
+ *  
+ *  cf) 표현식
+ *      10          :리터럴
+ *      5 + 5       :연산식
+ *      ten         :변수
+ *      add(5, 5)   :함수 호출 
+ * 
+ * 4. 공백: 토큰 구분, 무시
+ * 5. 세미콜론
+ * 6. 개행(line breaker)
+ *   
  */
 
-var i = 10;
-var f = function () {
-  var i = 20;
-  j = 100;
+// ;(세미콜론)하는 역할은 표현식을 표현식구문으로 만들어서 실행 하는 역할
+s = 'Hello World'
+i = 10 + 10
 
-  console.log(i);
-  i = j - i;
-};
+// 개행의 역할
+// 1. ;(세미콜론) 대체하는 역할
+i = 10
+console.log(i)
 
-f();
-console.log(i);
-console.log(j);
+// 2.
+// 하지만
+// 상황에 따라서는 토큰을 분리하는 역할
+a
+=
+2
++
+4
+console.log(a)
 
-console.log("=== var 키워드는 함수 블록에서만 범위를 만든다");
-if (90 + 10 === 100) {
-  var k = 10;
-}
-console.log(k);
 
-{
-  let x = 1000;
-  const PI = 3.14;
+con 
+sole.log(a)
 
-  x = 100;
-  // PI = 0;  // assign error
-}
 
-// console.log(x);  // reference error
-// console.log(PI); // reference error
+
