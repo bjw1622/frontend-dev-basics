@@ -5,9 +5,44 @@
 <title>sample1</title>
 <link href='image-viewer.css' type='text/css' rel="stylesheet"/>
 <script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="image-viewer.js"></script>
-<script>
-	imageViewer.init();
+<script type="text/javascript">
+const images = [ 
+	"국화:Chrysanthemum.jpg", 
+	"사막:Desert.jpg", 
+	"수국:Hydrangeas.jpg", 
+	"해파리:Jellyfish.jpg", 
+	"코알라:Koala.jpg", 
+	"등대:Lighthouse.jpg", 
+	"펭귄:Penguins.jpg", 
+	"툴립:Tulips.jpg"
+];
+
+const changeImage = function() {
+	let index = Math.floor(Math.random() * images.length);
+	let info = images[index].split(":");
+	setInterval(()=>{
+		 index = Math.floor(Math.random() * images.length);
+		 info = images[index].split(":");
+		$("#img_test").attr("src", "/ch07/images/"+info[1]);
+		console.log(info[0],info[1]);
+			
+	},1000)
+}
+
+const change = function() {
+		let index = Math.floor(Math.random() * images.length);
+		let info = images[index].split(":");
+		$("#img_test").attr("src", "/ch07/images/"+info[1]);
+}
+
+$(function(){
+	$("#btn-slideshow").click(function(){
+		changeImage();
+	});
+	$("#btn-change").click(function(){
+		change();
+	});
+});
 </script>
 </head>
 <body>
@@ -17,7 +52,7 @@
 			<button id="btn-slideshow">슬라이드쇼 시작</button>
 		</div>
 		<div>
-			<img/>
+			<img id="img_test"src="/ch07/images/Desert.jpg" alt="사막", title="사막"/>
 		</div>
 	</div>
 </body>
